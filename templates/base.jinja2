@@ -1,11 +1,78 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <body>
-            <a href="{{ url_for('homepage')}}"> Home Page </a> 
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+	<meta charset="utf-8" />
+	<title>API Tests reports</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	
+	<style>
+	#container
+	{
+		width: 1400px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#logo
+	{
+		background-color: black;
+		color: white;
+		text-align: center;
+		padding: 15px;
+	}
+	#nav
+	{
+		float: left;
+		background-color: lightgray;
+		width: 120px;
+		min-height: 620px;
+		padding: 10px;
+	}
+	#content
+	{
+		float: left;
+		padding: 20px;
+		width: 1040px;
+	}
+	#footer
+	{
+		clear: both;
+		background-color: black;
+		color: white;
+		text-align: center;
+		padding: 20px;
+	}	
+	</style>
+
+</head>
+
+<body>
+
+	<div id="container">
+	
+		<div id="logo">
+             <a href="{{ url_for('homepage')}}"> Home Page </a> 
+			<h1>API Tests reports</h1>
+		</div>
+	
+		<div id="nav">
+            <a href="{{ url_for('agentapi')}}"> Agent-Api </a> <br />
+            <a href="{{ url_for('customerapi')}}"> Customer-Api </a> <br />
+            <a href="{{ url_for('restapi')}}"> Rest-API </a> <br />
+            <a href="{{ url_for('integration')}}"> Integration </a> <br />
+		</div>
+		
+		<div id="content">
             {% block content %}
 
             {% endblock %}
-        </body>
-    </head>
+		</div>
+		
+		
+		<div id="footer">
+			API testing team
+		</div>
+	
+	</div>
+
+</body>
 </html>

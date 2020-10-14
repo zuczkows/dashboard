@@ -13,6 +13,12 @@ class ApptestDataCollector(Resource):
     parser.add_argument(
         "total", type=int, required=True, help="This field cannot be left blank!"
     )
+    parser.add_argument(
+        "suite", type=str, required=True, help="This field cannot be left blank!"
+    )
+    parser.add_argument(
+        "link", type=str, required=True, help="This field cannot be left blank!"
+    )
 
 
     @classmethod
@@ -20,6 +26,8 @@ class ApptestDataCollector(Resource):
         ''' POST method which saves apptests results. '''
 
         data = ApptestDataCollector.parser.parse_args()
+        print('To data')
+        print(data)
         data = DataCollector(**data)
 
         try:

@@ -4,7 +4,7 @@ from flask_restful import Api
 from resource.items import Items
 from resource.data_collector import ApptestDataCollector, ApptestDataCollectorList
 from resource.home import HomePage
-from resource.agent_api import AgentApi, AgentApi30, AgentApi31, AgentApi32, AgentApi33
+from resource.agent_api import *
 from resource.customer_api import CustomerApi
 from resource.rest_api import RestApi
 from resource.integration import Integration
@@ -24,10 +24,21 @@ api.add_resource(ApptestDataCollector, "/api/v1/collect/")
 api.add_resource(Items, "/post/<int:post_id>")
 api.add_resource(ApptestDataCollectorList, "/items")
 api.add_resource(AgentApi,    "/reports/agent-api")
-api.add_resource(AgentApi30,  "/reports/agent-api/v3.0")
-api.add_resource(AgentApi31,  "/reports/agent-api/v3.1")
-api.add_resource(AgentApi32,  "/reports/agent-api/v3.2")
-api.add_resource(AgentApi33,  "/reports/agent-api/v3.3")
+api.add_resource(AgentApiLabs,    "/reports/agent-api/labs")
+api.add_resource(AgentApiStaging,    "/reports/agent-api/staging")
+api.add_resource(AgentApiProduction,    "/reports/agent-api/production")
+api.add_resource(AgentApiLabs30,  "/reports/agent-api/labs/v3.0")
+api.add_resource(AgentApiLabs31,  "/reports/agent-api/labs/v3.1")
+api.add_resource(AgentApiLabs32,  "/reports/agent-api/labs/v3.2")
+api.add_resource(AgentApiLabs33,  "/reports/agent-api/labs/v3.3")
+api.add_resource(AgentApiStaging30,  "/reports/agent-api/staging/v3.0")
+api.add_resource(AgentApiStaging31,  "/reports/agent-api/staging/v3.1")
+api.add_resource(AgentApiStaging32,  "/reports/agent-api/staging/v3.2")
+api.add_resource(AgentApiStaging33,  "/reports/agent-api/staging/v3.3")
+api.add_resource(AgentApiProduction30,  "/reports/agent-api/production/v3.0")
+api.add_resource(AgentApiProduction31,  "/reports/agent-api/production/v3.1")
+api.add_resource(AgentApiProduction32,  "/reports/agent-api/production/v3.2")
+api.add_resource(AgentApiProduction33,  "/reports/agent-api/production/v3.3")
 api.add_resource(CustomerApi, "/reports/customer-api")
 api.add_resource(RestApi,     "/reports/rest-api")
 api.add_resource(Integration, "/reports/integration")

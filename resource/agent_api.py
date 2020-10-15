@@ -3,7 +3,6 @@ from flask import render_template, make_response
 from models.data_collector import DataCollector
 
 class AgentApi(Resource):
-
     def get(self):
         items = [item.json() for item in DataCollector.find_all()]
         posts = {}
@@ -11,7 +10,19 @@ class AgentApi(Resource):
             posts[number] = item 
         return make_response(render_template('agent-api.jinja2', posts=posts))
 
-class AgentApi30(Resource):
+class AgentApiLabs(Resource):
+    def get(self):
+        return make_response(render_template('agent-api-labs.jinja2'))
+
+class AgentApiStaging(Resource):
+    def get(self):
+        return make_response(render_template('agent-api-staging.jinja2'))
+
+class AgentApiProduction(Resource):
+    def get(self):
+        return make_response(render_template('agent-api-production.jinja2'))
+
+class AgentApiLabs30(Resource):
     def get(self):
         items = [item.json() for item in DataCollector.find_all()]
         posts = {}
@@ -19,7 +30,7 @@ class AgentApi30(Resource):
             posts[number] = item 
         return make_response(render_template('agent-api30.jinja2', posts=posts))
 
-class AgentApi31(Resource):
+class AgentApiLabs31(Resource):
     def get(self):
         items = [item.json() for item in DataCollector.find_all()]
         posts = {}
@@ -27,7 +38,7 @@ class AgentApi31(Resource):
             posts[number] = item 
         return make_response(render_template('agent-api.jinja2', posts=posts))
 
-class AgentApi32(Resource):
+class AgentApiLabs32(Resource):
     def get(self):
         items = [item.json() for item in DataCollector.find_all()]
         posts = {}
@@ -35,7 +46,71 @@ class AgentApi32(Resource):
             posts[number] = item 
         return make_response(render_template('agent-api.jinja2', posts=posts))
 
-class AgentApi33(Resource):
+class AgentApiLabs33(Resource):
+    def get(self):
+        items = [item.json() for item in DataCollector.find_all()]
+        posts = {}
+        for number, item in enumerate(items, 1):
+            posts[number] = item 
+        return make_response(render_template('agent-api.jinja2', posts=posts))
+
+class AgentApiStaging30(Resource):
+    def get(self):
+        items = [item.json() for item in DataCollector.find_all()]
+        posts = {}
+        for number, item in enumerate(items, 1):
+            posts[number] = item 
+        return make_response(render_template('agent-api30.jinja2', posts=posts))
+
+class AgentApiStaging31(Resource):
+    def get(self):
+        items = [item.json() for item in DataCollector.find_all()]
+        posts = {}
+        for number, item in enumerate(items, 1):
+            posts[number] = item 
+        return make_response(render_template('agent-api.jinja2', posts=posts))
+
+class AgentApiStaging32(Resource):
+    def get(self):
+        items = [item.json() for item in DataCollector.find_all()]
+        posts = {}
+        for number, item in enumerate(items, 1):
+            posts[number] = item 
+        return make_response(render_template('agent-api.jinja2', posts=posts))
+
+class AgentApiStaging33(Resource):
+    def get(self):
+        items = [item.json() for item in DataCollector.find_all()]
+        posts = {}
+        for number, item in enumerate(items, 1):
+            posts[number] = item 
+        return make_response(render_template('agent-api.jinja2', posts=posts))
+
+class AgentApiProduction30(Resource):
+    def get(self):
+        items = [item.json() for item in DataCollector.find_all()]
+        posts = {}
+        for number, item in enumerate(items, 1):
+            posts[number] = item 
+        return make_response(render_template('agent-api30.jinja2', posts=posts))
+
+class AgentApiProduction31(Resource):
+    def get(self):
+        items = [item.json() for item in DataCollector.find_all()]
+        posts = {}
+        for number, item in enumerate(items, 1):
+            posts[number] = item 
+        return make_response(render_template('agent-api.jinja2', posts=posts))
+
+class AgentApiProduction32(Resource):
+    def get(self):
+        items = [item.json() for item in DataCollector.find_all()]
+        posts = {}
+        for number, item in enumerate(items, 1):
+            posts[number] = item 
+        return make_response(render_template('agent-api.jinja2', posts=posts))
+
+class AgentApiProduction33(Resource):
     def get(self):
         items = [item.json() for item in DataCollector.find_all()]
         posts = {}

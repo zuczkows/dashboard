@@ -9,18 +9,7 @@ class AgentApi(Resource):
         for number, item in enumerate(items, 1):
             posts[number] = item 
         return make_response(render_template('agent-api.jinja2', posts=posts))
-
-class AgentApiLabs(Resource):
-    def get(self):
-        return make_response(render_template('agent-api-labs.jinja2'))
-
-class AgentApiStaging(Resource):
-    def get(self):
-        return make_response(render_template('agent-api-staging.jinja2'))
-
-class AgentApiProduction(Resource):
-    def get(self):
-        return make_response(render_template('agent-api-production.jinja2'))
+        
 
 class AgentApiLabs30(Resource):
     def get(self):
@@ -28,7 +17,7 @@ class AgentApiLabs30(Resource):
         posts = {}
         for number, item in enumerate(items, 1):
             posts[number] = item 
-        return make_response(render_template('agent-api30.jinja2', posts=posts))
+        return make_response(render_template('agent-api-labs-30.jinja2', posts=posts))
 
 class AgentApiLabs31(Resource):
     def get(self):
@@ -36,7 +25,7 @@ class AgentApiLabs31(Resource):
         posts = {}
         for number, item in enumerate(items, 1):
             posts[number] = item 
-        return make_response(render_template('agent-api.jinja2', posts=posts))
+        return make_response(render_template('agent-api-labs-31.jinja2', posts=posts))
 
 class AgentApiLabs32(Resource):
     def get(self):
@@ -44,7 +33,7 @@ class AgentApiLabs32(Resource):
         posts = {}
         for number, item in enumerate(items, 1):
             posts[number] = item 
-        return make_response(render_template('agent-api.jinja2', posts=posts))
+        return make_response(render_template('agent-api-labs-32.jinja2', posts=posts))
 
 class AgentApiLabs33(Resource):
     def get(self):
@@ -52,7 +41,7 @@ class AgentApiLabs33(Resource):
         posts = {}
         for number, item in enumerate(items, 1):
             posts[number] = item 
-        return make_response(render_template('agent-api.jinja2', posts=posts))
+        return make_response(render_template('agent-api-labs-33.jinja2', posts=posts))
 
 class AgentApiStaging30(Resource):
     def get(self):

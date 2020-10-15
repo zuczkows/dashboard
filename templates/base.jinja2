@@ -41,6 +41,18 @@
 		text-align: center;
 		padding: 20px;
 	}	
+	a:link{
+		color:black;
+		text-decoration: none;
+	}
+	a:visited{
+		color:black;
+		text-decoration: none;
+	}
+	a:hover{
+		color:red;
+		text-decoration: none;
+	}
 	</style>
 
 </head>
@@ -62,6 +74,7 @@
 		</div>
 		
 		<div id="content">
+			<a href="javascript:history.back()">Go Back</a>
             {% block content %}
 
             {% endblock %}

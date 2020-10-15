@@ -2,4 +2,22 @@
 
 {% block content %}
 <h1> Agent-Api LABS 3.0 reports </h1>
+
+<table>
+  <tr>
+    <th>Suite</th>
+    <th>Passed</th>
+    <th>Total</th>
+    <th>Link</th>
+  </tr>
+    {% for item in reports %}
+    <tr>
+        <td>{{ item['suite']}}</td>
+        <td>{{ item['passed']}}</td>
+        <td>{{ item['total']}}</td>
+        <td><a href="{{ item['link'] }}"> Report </a></td>
+    </tr>
+    {% endfor %}
+
+</table>
 {% endblock %}

@@ -19,6 +19,15 @@ class ApptestDataCollector(Resource):
     parser.add_argument(
         "link", type=str, required=True, help="This field cannot be left blank!"
     )
+    parser.add_argument(
+        "version", type=float, required=True, help="This field cannot be left blank!"
+    )
+    parser.add_argument(
+        "service", type=str, required=True, help="This field cannot be left blank!"
+    )
+    parser.add_argument(
+        "env", type=str, required=True, help="This field cannot be left blank!"
+    )
 
 
     @classmethod
@@ -26,8 +35,6 @@ class ApptestDataCollector(Resource):
         ''' POST method which saves apptests results. '''
 
         data = ApptestDataCollector.parser.parse_args()
-        print('To data')
-        print(data)
         data = DataCollector(**data)
 
         try:
@@ -40,4 +47,4 @@ class ApptestDataCollector(Resource):
 class ApptestDataCollectorList(Resource):
     def get(self):
         items = [item.json() for item in DataCollector.find_all()]
-        return {"posts": items}, 200
+        return {"reports": items}, 200

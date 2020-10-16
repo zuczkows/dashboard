@@ -6,41 +6,132 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	
 	<style>
+	body
+	{
+		background-color: #404040;
+		font-family: 'Lato', sans-serif;
+	}
+
 	#container
 	{
-		width: 1400px;
+		width: 1200px;
 		margin-left: auto;
 		margin-right: auto;
 	}
+
 	#logo
 	{
-		background-color: black;
 		color: white;
-		text-align: center;
-		padding: 15px;
+		margin-top: 20px;
+		font-size: 44px;
+		letter-spacing: 3px;
+		font-weight: 900;
 	}
-	#nav
+
+	#menu
+	{
+		background-color: #303030;
+		margin-top: 20px;
+		color: #ffffff;
+		padding: 10px;
+		
+	}
+
+	#sidebar
 	{
 		float: left;
-		background-color: lightgray;
-		width: 120px;
+		width: 148px;
 		min-height: 620px;
-		padding: 10px;
+		padding:20px;
+		background-color: lightgray;
+		text-align: center;
+		font-size: 18px;
+		border-right: 2px dotted #666666;
 	}
+
 	#content
 	{
 		float: left;
-		padding: 20px;
-		width: 1040px;
+		padding: 40px;
+		width: 740px;
+		background-color: #FFFFFF;
+		min-height: 580px;
+		text-align: justify;
 	}
+
+	#rightbar
+	{
+		float: left;
+		width: 148px;
+		min-height: 620px;
+		padding:20px;
+		background-color: lightgray;
+		text-align: center;
+		font-size: 18px;
+		border-left: 2px dotted #666666;
+	}
+
 	#footer
 	{
 		clear: both;
-		background-color: black;
 		color: white;
 		text-align: center;
 		padding: 20px;
-	}	
+		font-size: 18px;
+	}
+
+	#logo
+	{
+		text-align: center;
+	}
+
+	.option
+	{
+		float: left;
+		min-width: 50px;
+		height: 25px;
+		font-size: 18px;
+		padding: 10px;
+		border-right: 2px dotted #444444;
+		opacity: 0.8;
+	}
+
+	.option:hover
+	{
+		background-color: #f36742;
+		cursor: pointer;
+	}
+
+	.optionL
+	{
+		font-size:18px;
+		height:25px;
+		padding: 10px;
+		border-bottom: 2px dotted #444444;
+	}
+
+	.optionL:hover
+	{
+		background-color: #f36742;
+		color: white;
+		cursor: pointer;
+	}
+
+	.bigtitle
+	{
+		font-size: 32px;
+		font-weight: 900;
+		letter-spacing: 2px;
+	}
+
+	.dottedline
+	{
+		height: 5px;
+		margin-top: 15px;
+		margin-bottom: 20px;
+		border-bottom: 2px dotted #444444;
+	}
+
 	a:link{
 		color:black;
 		text-decoration: none;
@@ -72,21 +163,34 @@
 	</style>
 
 </head>
-
 <body>
-
+	
 	<div id="container">
 	
 		<div id="logo">
-             <a href="{{ url_for('homepage')}}"> Home Page </a> 
-			<h1>API Tests reports</h1>
+			API Testing Dashboard
 		</div>
-	
-		<div id="nav">
-            <a href="{{ url_for('agentapi')}}"> Agent-Api </a> <br />
-            <a href="{{ url_for('customerapi')}}"> Customer-Api </a> <br />
-            <a href="{{ url_for('restapi')}}"> Rest-API </a> <br />
-            <a href="{{ url_for('integration')}}"> Integration </a> <br />
+		
+		<div id="menu">
+			<div class="option"><a href="{{ url_for('homepage')}}"> Home Page </a></div>
+			<div class="option"><a href="https://livechatinc.atlassian.net/wiki/spaces/PAT/pages/501284915/Test+Environment" target="_blank">Test Environment</a></div>
+			<div class="option"><a href="https://developers.labs.livechat.com/docs/" target="_blank">Platform Api Docs</a></div>
+			<div class="option"><a href="https://github.com/livechat/livechat-docs/tree/master/livechat2/rest-api/docs" target="_blank">Rest Api Docs</a></div>
+			<div class="option"><a href="https://github.com/livechat/testing" target="_blank">Testing repository</a></div>
+			<div style="clear:both;"></div>
+		</div>
+
+		
+		<div id="sidebar">
+			<div class="optionL"><a href="{{ url_for('agentapi')}}"> Agent-Api </a></div>
+			<div class="optionL"><a href="{{ url_for('customerapi')}}"> Customer-Api </a></div>
+			<div class="optionL">Conf-Api</div>
+			<div class="optionL"><a href="{{ url_for('restapi')}}"> Rest-API </a></div>
+			<div class="optionL"><a href="{{ url_for('integration')}}"> Integration </a></div>
+			<div class="optionL">SSO</div>
+			<div class="optionL">Visitor-Proxy</div>
+			<div class="optionL">Emailinium</div>
+			<div class="optionL">File-Api</div>
 		</div>
 		
 		<div id="content">
@@ -94,14 +198,20 @@
             {% block content %}
 
             {% endblock %}
+		</div>	
+
+		<div id="rightbar">
+			<div class="optionL"><a href="{{ url_for('agentapi')}}"> Agent-Api </a></div>
+			<div class="optionL"><a href="{{ url_for('customerapi')}}"> Customer-Api </a></div>
+			<div class="optionL"><a href="{{ url_for('restapi')}}"> Rest-API </a></div>
+			<div class="optionL"><a href="{{ url_for('integration')}}"> Integration </a></div>
 		</div>
 		
-		
 		<div id="footer">
-			API testing team
+			API tests results
 		</div>
 	
 	</div>
-
+	
 </body>
 </html>

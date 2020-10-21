@@ -1,31 +1,23 @@
 from db import db
+from typing import Dict, Union
+
+ItemJson = Dict[str, Union[int, str, float]]
 
 
 class DataCollector(db.Model):
     __tablename__ = "reports"
 
     id = db.Column(db.Integer, primary_key=True)
-    date = db.Column(db.Integer)
-    version = db.Column(db.Float)
-    passed = db.Column(db.Integer)
-    total = db.Column(db.Integer)
-    suite = db.Column(db.String)
-    service = db.Column(db.String)
-    link = db.Column(db.String)
-    env = db.Column(db.String)
+    date = db.Column(db.Integer,  nullable=False)
+    version = db.Column(db.Float,  nullable=False)
+    passed = db.Column(db.Integer,  nullable=False)
+    total = db.Column(db.Integer,  nullable=False)
+    suite = db.Column(db.String,  nullable=False)
+    service = db.Column(db.String,  nullable=False)
+    link = db.Column(db.String,  nullable=False)
+    env = db.Column(db.String,  nullable=False)
 
-
-    def __init__(self, suite, version, date, passed, total, link, service, env):
-        self.suite = suite
-        self.date = date
-        self.version = version
-        self.passed = passed
-        self.total = total
-        self.link = link
-        self.service = service
-        self.env = env
-
-    def json(self):
+    def json(self) -> ItemJson:
         return {
             "suite": self.suite,
             "version": self.version,
@@ -34,25 +26,27 @@ class DataCollector(db.Model):
             "passed": self.passed,
             "total": self.total,
             "link": self.link,
-            "service": self.service
+            "service": self.service,
         }
 
     @classmethod
-    def find_by_suite(cls, name):
+    def find_by_suite(cls, name: str) -> "DataCollector":
         return cls.query.filter_by(suite=name).all()
 
     @classmethod
-    def find_by_suite_and_version(cls, service, version, env):
+    def find_by_suite_and_version(
+        cls, service: str, version: float, env: str
+    ) -> "DataCollector":
         return cls.query.filter_by(service=service, version=version, env=env).all()
 
     @classmethod
-    def find_all(cls):
+    def find_all(cls) -> "DataCollector":
         return cls.query.all()
 
-    def save_to_db(self):
+    def save_to_db(self) -> None:
         db.session.add(self)
         db.session.commit()
 
-    def delete_from_db(self):
+    def delete_from_db(self) -> None:
         db.session.delete(self)
         db.session.commit()

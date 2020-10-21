@@ -9,4 +9,4 @@ class CustomerApi(Resource):
         posts = {}
         for number, item in enumerate(items, 1):
             posts[number] = item 
-        return make_response(render_template('customer-api.jinja2', posts=posts))
+        return make_response(render_template('agent-api.jinja2', posts=posts))

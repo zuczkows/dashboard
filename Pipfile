@@ -6,6 +6,16 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+Flask-SQLAlchemy = "==2.4.4"
+Flask-RESTful = "==0.3.8"
+Flask = "==1.1.2"
+marshmallow = "==3.0.0b16"
+flask-marshmallow = "*"
+marshmallow-sqlalchemy = "*"
+black = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.6.8"
+
+[pipenv]
+allow_prereleases = true

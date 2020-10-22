@@ -5,7 +5,7 @@ from schemas.report import ReportSchema
 from marshmallow import ValidationError
 
 report_schema = ReportSchema()
-
+report_schema_list = ReportSchema(many=True)
 
 class ApptestDataCollector(Resource):
     @classmethod
@@ -23,10 +23,10 @@ class ApptestDataCollector(Resource):
         except:
             return {"message": "An error occurred while inserting the item."}, 500
 
-        return report.json(), 201
+        return report_schema.dump(report), 201
 
 
 class ApptestDataCollectorList(Resource):
     def get(self):
-        items = [item.json() for item in DataCollector.find_all()]
+        items = report_schema_list.dump(DataCollector.find_all())
         return {"reports": items}, 200

@@ -28,7 +28,6 @@ def handle_marshmallow_validation(err):
 
 api.add_resource(HomePage, "/reports")
 api.add_resource(ApptestDataCollector, "/api/v1/collect/")
-api.add_resource(Items, "/post/<int:post_id>")
 api.add_resource(ApptestDataCollectorList, "/items")
 api.add_resource(AgentApi, "/reports/agent-api")
 api.add_resource(AgentApiLabs30, "/reports/agent-api/labs/v3.0")

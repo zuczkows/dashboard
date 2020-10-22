@@ -1,17 +1,23 @@
 from flask_restful import Resource, reqparse
 from flask import render_template, make_response
 from models.data_collector import DataCollector
+from schemas.report import ReportSchema
+
+report_schema = ReportSchema()
 
 
 def get(env: str, service: str, version: float):
     items = [
-        item.json()
+        report_schema.dump(item)
         for item in DataCollector.find_by_suite_and_version(
             env=env, service=service, version=version
         )
     ]
-    version = items[0]["version"]
-    env = items[0]["env"]
+    try:
+        version = items[0].get('version')
+        env = items[0].get('env')
+    except:
+        return make_response(render_template('404.jinja2'))
     return make_response(
         render_template(
             "agent-api-reports.jinja2", reports=items, version=version, env=env

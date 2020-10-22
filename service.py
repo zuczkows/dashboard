@@ -9,10 +9,12 @@ from resource.customer_api import CustomerApi
 from resource.rest_api import RestApi
 from resource.integration import Integration
 from ma import ma
+from marshmallow import ValidationError
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config["PROPAGATE_EXCEPTIONS"] = True
 api = Api(app)
 
 
@@ -20,6 +22,9 @@ api = Api(app)
 def create_tables():
     db.create_all()
 
+@app.errorhandler(ValidationError)
+def handle_marshmallow_validation(err):
+    return jsonify(err.messages), 400
 
 api.add_resource(HomePage, "/reports")
 api.add_resource(ApptestDataCollector, "/api/v1/collect/")

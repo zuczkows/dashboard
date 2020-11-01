@@ -30,61 +30,16 @@ class AgentApi(Resource):
         return make_response(render_template("agent-api.jinja2"))
 
 
-class AgentApiLabs30(Resource):
-    def get(self):
-        return get(env="labs", service="agent-api", version=3.0)
+class AgentApiLabs(Resource):
+    def get(self, version):
+        return get(env="labs", service="agent-api", version=float(version[1:]))
 
 
-class AgentApiLabs31(Resource):
-    def get(self):
-        return get(env="labs", service="agent-api", version=3.1)
+class AgentApiStaging(Resource):
+    def get(self, version):
+        return get(env="staging", service="agent-api", version=float(version[1:]))
 
 
-class AgentApiLabs32(Resource):
-    def get(self):
-        return get(env="labs", service="agent-api", version=3.2)
-
-
-class AgentApiLabs33(Resource):
-    def get(self):
-        return get(env="labs", service="agent-api", version=3.3)
-
-
-class AgentApiStaging30(Resource):
-    def get(self):
-        return get(env="staging", service="agent-api", version=3.0)
-
-
-class AgentApiStaging31(Resource):
-    def get(self):
-        return get(env="staging", service="agent-api", version=3.0)
-
-
-class AgentApiStaging32(Resource):
-    def get(self):
-        return get(env="staging", service="agent-api", version=3.0)
-
-
-class AgentApiStaging33(Resource):
-    def get(self):
-        return get(env="staging", service="agent-api", version=3.0)
-
-
-class AgentApiProduction30(Resource):
-    def get(self):
-        return get(env="prod", service="agent-api", version=3.0)
-
-
-class AgentApiProduction31(Resource):
-    def get(self):
-        return get(env="prod", service="agent-api", version=3.0)
-
-
-class AgentApiProduction32(Resource):
-    def get(self):
-        return get(env="prod", service="agent-api", version=3.0)
-
-
-class AgentApiProduction33(Resource):
-    def get(self):
-        return get(env="prod", service="agent-api", version=3.0)
+class AgentApiProduction(Resource):
+    def get(self, version):
+        return get(env="prod", service="agent-api", version=float(version[1:]))

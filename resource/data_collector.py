@@ -6,6 +6,7 @@ from schemas.report import ReportSchema
 report_schema = ReportSchema()
 report_schema_list = ReportSchema(many=True)
 
+
 class ApptestDataCollector(Resource):
     @classmethod
     def post(cls):
@@ -24,5 +25,5 @@ class ApptestDataCollectorList(Resource):
         total = 0
         data = report_schema_list.dump(DataCollector.find_all())
         for x in data:
-            total += x['total']
-        return {'total': total}
+            total += x["total"]
+        return {"total": total}

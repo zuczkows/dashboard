@@ -5,9 +5,10 @@ from schemas.report import ReportSchema
 
 report_schema = ReportSchema()
 
+
 class RestApi(Resource):
     def get(self):
-        items = [report_schema.dump(item)  for item in DataCollector.find_all()]
+        items = [report_schema.dump(item) for item in DataCollector.find_all()]
         posts = {}
         for number, item in enumerate(items, 1):
             posts[number] = item

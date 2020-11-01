@@ -25,9 +25,11 @@ api = Api(app)
 def create_tables():
     db.create_all()
 
+
 @app.errorhandler(ValidationError)
 def handle_marshmallow_validation(err):
     return jsonify(err.messages), 400
+
 
 @app.context_processor
 def utility_processor():
@@ -38,11 +40,12 @@ def utility_processor():
         xfailed = 0
         data = report_schema_list.dump(DataCollector.find_all())
         for report in data:
-            total += report['total']
-            passed += report['passed']
-            failed += report['failed']
-            xfailed += report['xfailed']
-        return [total,passed, failed, xfailed]
+            total += report["total"]
+            passed += report["passed"]
+            failed += report["failed"]
+            xfailed += report["xfailed"]
+        return [total, passed, failed, xfailed]
+
     return dict(get_total_tests=get_total_tests)
 
 

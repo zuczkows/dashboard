@@ -14,10 +14,10 @@ def get(env: str, service: str, version: float):
         )
     ]
     try:
-        version = items[0].get('version')
-        env = items[0].get('env')
+        version = items[0].get("version")
+        env = items[0].get("env")
     except:
-        return make_response(render_template('404.jinja2'))
+        return make_response(render_template("404.jinja2"))
     return make_response(
         render_template(
             "agent-api-reports.jinja2", reports=items, version=version, env=env

@@ -20,4 +20,9 @@ class ApptestDataCollector(Resource):
 
 class ApptestDataCollectorList(Resource):
     def get(self):
-        return {"reports": report_schema_list.dump(DataCollector.find_all())}, 200
+        # return {"reports": report_schema_list.dump(DataCollector.find_all())}, 200
+        total = 0
+        data = report_schema_list.dump(DataCollector.find_all())
+        for x in data:
+            total += x['total']
+        return {'total': total}

@@ -201,10 +201,12 @@
 		</div>	
 
 		<div id="rightbar">
-			<div class="optionL"><a href="{{ url_for('agentapi')}}"> Agent-Api </a></div>
-			<div class="optionL"><a href="{{ url_for('customerapi')}}"> Customer-Api </a></div>
-			<div class="optionL"><a href="{{ url_for('restapi')}}"> Rest-API </a></div>
-			<div class="optionL"><a href="{{ url_for('integration')}}"> Integration </a></div>
+			<h2> Today statistics </h2>
+			<p> Total tests: {{ get_total_tests()[0] }} </p>
+			<p style="color:green"> Total passed: {{ get_total_tests()[1] }} </p>
+			<p style="color:red"> Total failed: {{ get_total_tests()[2] }} </p>
+			<p style="color:red"> Total xfailed: {{ get_total_tests()[3] }} </p>
+
 		</div>
 		
 		<div id="footer">

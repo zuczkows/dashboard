@@ -7,6 +7,8 @@
   <tr>
     <th>Suite</th>
     <th>Passed</th>
+    <th>Failed</th>
+    <th>xFailed</th>
     <th>Total</th>
     <th>Link</th>
   </tr>
@@ -14,6 +16,8 @@
     <tr>
         <td>{{ item['suite']}}</td>
         <td>{{ item['passed']}}</td>
+        <td>{{ item['failed']}}</td>
+        <td>{{ item['xfailed']}}</td>
         <td>{{ item['total']}}</td>
         <td><a href="{{ item['link'] }}"> Report </a></td>
     </tr>

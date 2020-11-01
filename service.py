@@ -1,7 +1,6 @@
 from flask import Flask, jsonify, render_template
 from flask_restful import Api
 
-from resource.items import Items
 from resource.data_collector import ApptestDataCollector, ApptestDataCollectorList
 from resource.home import HomePage
 from resource.agent_api import *
@@ -10,6 +9,10 @@ from resource.rest_api import RestApi
 from resource.integration import Integration
 from ma import ma
 from marshmallow import ValidationError
+from models.data_collector import DataCollector
+from schemas.report import ReportSchema
+
+report_schema_list = ReportSchema(many=True)
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
@@ -25,6 +28,23 @@ def create_tables():
 @app.errorhandler(ValidationError)
 def handle_marshmallow_validation(err):
     return jsonify(err.messages), 400
+
+@app.context_processor
+def utility_processor():
+    def get_total_tests():
+        total = 0
+        passed = 0
+        failed = 0
+        xfailed = 0
+        data = report_schema_list.dump(DataCollector.find_all())
+        for report in data:
+            total += report['total']
+            passed += report['passed']
+            failed += report['failed']
+            xfailed += report['xfailed']
+        return [total,passed, failed, xfailed]
+    return dict(get_total_tests=get_total_tests)
+
 
 api.add_resource(HomePage, "/reports")
 api.add_resource(ApptestDataCollector, "/api/v1/collect/")

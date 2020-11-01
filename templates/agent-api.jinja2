@@ -2,33 +2,31 @@
 
 {% block content %}
 <h1> Agent-Api reports </h1>
-<ull>
-    <li>
-        LABS
-        <ul>
-            <li><a href="{{ url_for('agentapilabs', version='v3.0')}}"> v3.0 </a> </li>
-            <li><a href="{{ url_for('agentapilabs', version='v3.1')}}"> v3.1 </a> </li>
-            <li><a href="{{ url_for('agentapilabs', version='v3.2')}}"> v3.2 </a> </li>
-            <li><a href="{{ url_for('agentapilabs', version= 'v3.3')}}"> v3.3 </a> </li>
-        </ul>
-    </li>
-    <li>
-        STAGING
-        <ul>
-            <li><a href="{{ url_for('agentapistaging', version='v3.0')}}"> v3.0 </a> </li>
-            <li><a href="{{ url_for('agentapistaging', version='v3.1')}}"> v3.1 </a> </li>
-            <li><a href="{{ url_for('agentapistaging', version='v3.2')}}"> v3.2 </a> </li>
-            <li><a href="{{ url_for('agentapistaging', version='v3.3')}}"> v3.3 </a> </li>
-        </ul>
-    </li>
-    <li>
-        PRODUCTION
-        <ul>
-            <li><a href="{{ url_for('agentapiproduction', version='v3.0')}}"> v3.0 </a> </li>
-            <li><a href="{{ url_for('agentapiproduction', version='v3.1')}}"> v3.1 </a> </li>
-            <li><a href="{{ url_for('agentapiproduction', version='v3.2')}}"> v3.2 </a> </li>
-            <li><a href="{{ url_for('agentapiproduction', version='v3.3')}}"> v3.3 </a> </li>
-        </ul>
-    </li>
-</ul>
+<h4> LABS </h4>
+<table>
+    <tr>
+        <th><a href="{{ url_for('agentapilabs', version='v3.0')}}"> v3.0 </a></th>
+        <th><a href="{{ url_for('agentapilabs', version='v3.1')}}"> v3.1 </a></th>
+        <th><a href="{{ url_for('agentapilabs', version='v3.2')}}"> v3.2 </a> </th>
+        <th><a href="{{ url_for('agentapilabs', version= 'v3.3')}}"> v3.3 </a></th>
+    </tr>
+</table><br><br>
+<h4> STAGING </h4>
+<table>
+    <tr>
+        <th><a href="{{ url_for('agentapistaging', version='v3.0')}}"> v3.0 </a></th>
+        <th><a href="{{ url_for('agentapistaging', version='v3.1')}}"> v3.1 </a></th>
+        <th><a href="{{ url_for('agentapistaging', version='v3.2')}}"> v3.2 </a> </th>
+        <th><a href="{{ url_for('agentapistaging', version= 'v3.3')}}"> v3.3 </a></th>
+    </tr>
+</table><br><br>
+<h4> PRODUCTION </h4>
+<table>
+    <tr>
+        <th><a href="{{ url_for('agentapiproduction', version='v3.0')}}"> v3.0 </a></th>
+        <th><a href="{{ url_for('agentapiproduction', version='v3.1')}}"> v3.1 </a></th>
+        <th><a href="{{ url_for('agentapiproduction', version='v3.2')}}"> v3.2 </a> </th>
+        <th><a href="{{ url_for('agentapiproduction', version= 'v3.3')}}"> v3.3 </a></th>
+    </tr>
+</table>
 {% endblock %}
